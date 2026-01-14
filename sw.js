@@ -1,4 +1,4 @@
-const CACHE = "lockscreen-3d-wow-v2";
+const CACHE = "lockscreen-3d-wow-v3";
 const ASSETS = [
   "./",
   "./index.html",
