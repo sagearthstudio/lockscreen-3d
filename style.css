@@ -1,4 +1,4 @@
-html, body {
+html, body{
   height: 100%;
   margin: 0;
   background: #000;
@@ -18,7 +18,7 @@ html, body {
 
 .layer{
   position: absolute;
-  inset: -6%;
+  inset: -8%;
   will-change: transform, filter, opacity;
   transform: translate3d(0,0,0);
 }
@@ -36,20 +36,24 @@ html, body {
   mix-blend-mode: screen;
 }
 
-/* ===== Subject (FIX: non mozzata) ===== */
+/* ===== SUBJECT: NON MOZZATO =====
+   max-height evita tagli su schermi bassi
+   width flessibile + contain */
 .subject{
-  width: min(68vw, 420px);
-  height: auto;
-
-  left: 58%;       /* spostata leggermente a destra */
-  bottom: 0vh;     /* alza un po’ la figura */
-  top: auto;
-
+  position: absolute;
+  left: 58%;
+  bottom: 0vh;
   transform: translateX(-50%);
-  inset: auto;
+  width: min(66vw, 420px);
+  max-width: 520px;
+
+  height: auto;
+  max-height: 92vh;        /* <- chiave anti-mozzo */
+  object-fit: contain;
 
   filter: drop-shadow(0 22px 28px rgba(0,0,0,.45));
   pointer-events: none;
+  will-change: transform;
 }
 
 /* FX canvas */
@@ -114,6 +118,10 @@ html, body {
   backdrop-filter: blur(8px);
 }
 
+.btn.secondary{
+  opacity: .9;
+}
+
 .controls{
   pointer-events: auto;
   display: flex;
@@ -136,11 +144,8 @@ html, body {
   font-size: 12px;
 }
 
-.file input{
-  width: 135px;
-  color: rgba(255,255,255,.85);
-}
+.file input{ width: 135px; color: rgba(255,255,255,.85); }
+.range input{ width: 110px; }
 
-.range input{
-  width: 110px;
-}
+.hidden-ui #controls{ display:none; }
+.hidden-ui .badge{ opacity:.65; }
