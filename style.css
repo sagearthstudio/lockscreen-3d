@@ -23,33 +23,36 @@ html, body {
   transform: translate3d(0,0,0);
 }
 
-/* Background uses cover like a wallpaper */
+/* Background cover */
 .bg{
   background: url("assets/background.jpg") center/cover no-repeat;
   filter: saturate(1.05) contrast(1.03);
 }
 
-/* Soft fog for depth */
+/* Fog depth */
 .fog{
   background: url("assets/fog.png") center/cover no-repeat;
   opacity: 0.55;
   mix-blend-mode: screen;
-  filter: blur(0px);
 }
 
-/* Foreground subject */
+/* ===== Subject (FIX: non mozzata) ===== */
 .subject{
-  width: min(78vw, 520px);
+  width: min(68vw, 420px);
   height: auto;
-  left: 50%;
-  bottom: -2vh;
+
+  left: 58%;       /* spostata leggermente a destra */
+  bottom: 0vh;     /* alza un po’ la figura */
   top: auto;
+
   transform: translateX(-50%);
   inset: auto;
+
   filter: drop-shadow(0 22px 28px rgba(0,0,0,.45));
+  pointer-events: none;
 }
 
-/* Canvas FX */
+/* FX canvas */
 .fx{
   inset: 0;
   width: 100%;
@@ -57,7 +60,7 @@ html, body {
   pointer-events: none;
 }
 
-/* Light sweep layer */
+/* Light sweep */
 .light{
   background: radial-gradient(ellipse at 30% 30%, rgba(255,220,140,.28), rgba(0,0,0,0) 55%),
               linear-gradient(120deg, rgba(255,255,255,.0), rgba(255,230,170,.18), rgba(255,255,255,.0));
@@ -66,30 +69,38 @@ html, body {
   filter: blur(2px);
 }
 
-/* UI */
+/* ===== UI ===== */
 #ui{
   position: absolute;
   z-index: 999;
-  top: env(safe-area-inset-top, 12px);
-  left: 12px;
-  right: 12px;
+  top: env(safe-area-inset-top, 10px);
+  left: 10px;
+  right: 10px;
   display: flex;
   gap: 10px;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   pointer-events: none;
 }
 
 .badge{
   pointer-events: none;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 12px;
   letter-spacing: .18em;
-  color: rgba(255,255,255,.85);
+  color: rgba(255,255,255,.88);
   background: rgba(0,0,0,.35);
   padding: 10px 12px;
   border-radius: 999px;
   backdrop-filter: blur(8px);
+}
+
+.right{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .btn{
@@ -99,14 +110,37 @@ html, body {
   color: rgba(255,255,255,.92);
   padding: 10px 14px;
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 800;
   backdrop-filter: blur(8px);
 }
 
-.hint{
-  display:none;
+.controls{
+  pointer-events: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
-@media (min-width: 420px){
-  .hint{ display:block; color: rgba(255,255,255,.75); font-size: 12px; }
+.file, .range{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  color: rgba(255,255,255,.85);
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.14);
+  padding: 8px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  font-size: 12px;
+}
+
+.file input{
+  width: 135px;
+  color: rgba(255,255,255,.85);
+}
+
+.range input{
+  width: 110px;
 }
