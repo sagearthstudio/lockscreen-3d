@@ -11,14 +11,47 @@
 <body>
   <div id="ui">
     <div class="badge">LOCKSCREEN 3D • WOW</div>
-    <button id="enableMotion" class="btn">Attiva movimento</button>
-    <div class="hint">Suggerimento: muovi il telefono oppure trascina col dito.</div>
+
+    <div class="right">
+      <button id="enableMotion" class="btn">Attiva movimento</button>
+
+      <div class="controls">
+        <label class="file">
+          BG
+          <input id="bgFile" type="file" accept="image/*">
+        </label>
+
+        <label class="file">
+          Soggetto (PNG)
+          <input id="subjectFile" type="file" accept="image/png,image/*">
+        </label>
+
+        <label class="range">
+          Scala
+          <input id="scale" type="range" min="0.70" max="1.40" step="0.01" value="1.00">
+        </label>
+
+        <label class="range">
+          X
+          <input id="posX" type="range" min="35" max="75" step="1" value="58">
+        </label>
+
+        <label class="range">
+          WOW
+          <input id="wow" type="range" min="6" max="22" step="1" value="12">
+        </label>
+      </div>
+    </div>
   </div>
 
   <div class="scene" id="scene">
     <div class="layer bg" id="bg"></div>
     <div class="layer fog" id="fog"></div>
+
+    <!-- Foreground -->
     <img class="layer subject" id="subject" src="assets/subject.png" alt="Subject">
+
+    <!-- Effects -->
     <canvas class="layer fx" id="fx"></canvas>
     <div class="layer light" id="light"></div>
   </div>
