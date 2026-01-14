@@ -14,8 +14,9 @@
 
     <div class="right">
       <button id="enableMotion" class="btn">Attiva movimento</button>
+      <button id="toggleUI" class="btn secondary">Nascondi</button>
 
-      <div class="controls">
+      <div class="controls" id="controls">
         <label class="file">
           BG
           <input id="bgFile" type="file" accept="image/*">
@@ -28,12 +29,17 @@
 
         <label class="range">
           Scala
-          <input id="scale" type="range" min="0.70" max="1.40" step="0.01" value="1.00">
+          <input id="scale" type="range" min="0.75" max="1.25" step="0.01" value="1.00">
         </label>
 
         <label class="range">
           X
           <input id="posX" type="range" min="35" max="75" step="1" value="58">
+        </label>
+
+        <label class="range">
+          Y
+          <input id="posY" type="range" min="-6" max="10" step="1" value="0">
         </label>
 
         <label class="range">
@@ -49,7 +55,7 @@
     <div class="layer fog" id="fog"></div>
 
     <!-- Foreground -->
-    <img class="layer subject" id="subject" src="assets/subject.png" alt="Subject">
+    <img class="subject" id="subject" src="assets/subject.png" alt="Subject">
 
     <!-- Effects -->
     <canvas class="layer fx" id="fx"></canvas>
